@@ -1,0 +1,61 @@
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabezera {
+    width: 100%;
+    background-color: #ee823a;
+    border-bottom: 2px solid #131212;
+    padding: 0 20px;
+}
+
+.barraNav {
+    display: flex;           
+    justify-content: space-evenly; 
+    align-items: first baseline;     
+    padding: 10px 15px;      
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.navega {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0.95;
+    gap: 15px;
+    font-weight: 700;
+}
+
+body{
+    background-color: #1ac62b9b;
+}
+
+.portada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.parteDerecha{
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: space-around;
+    gap: 1px;
+
+}
+
+#p1{
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #ee823a;
+}
