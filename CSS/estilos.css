@@ -1,5 +1,5 @@
 :root{
-    --colorUso: #4a9f46
+    --colorUso: #ec3030
 }
 
 *{
@@ -23,33 +23,46 @@ section{
     padding: 2rem 9%;
 }
 
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: url(../Imagenes/botoned.jpg) round;
+    color: #f80000;
+    padding: 3rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-weight: bold;
+    -webkit-text-stroke: 0.9px #000000;
+    
+}
 
 header{
     position: fixed;
     top: 0;left: 0;right: 0;
-    background: #c76a48;
+    background: #ffffff;
     padding: 2rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     z-index: 1000;
-    box-shadow: 0 .5rem 1rem #30522a ;
+    box-shadow: 0 .5rem 1rem #000000 ;
 }
 
 header .logo{
     font-size: 2rem;
-    color: 	#004c26;
+    color: 	#000000;
     font-weight: bolder;
 }
 
 header .logo span{
-    color: #000;
+    color: #ff0000;
 }
 
 header .barra a{
     font-size: 1.5rem;
     padding: 0 1.5rem;
-    color: #004c26;
+    color: #000000;
 }
 
 header .barra a:hover{
@@ -58,7 +71,7 @@ header .barra a:hover{
 
 header .iconos a{
     font-size: 1.5rem;
-    color: #004c26;
+    color: #000000;
     margin-left: 1.5rem;
 }
 
@@ -70,70 +83,42 @@ header .iconos a:hover{
     display: flex;
     align-items: center;
     min-height: 100vh;
-    background: url(../Imagenes/fondoPagedit2.PNG) no-repeat;
+    background: url(../Imagenes/fondoPagedit.PNG) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .home .contenido{
     max-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
 }
 
 .home .contenido h3{
     font-size: 6rem;
-    -webkit-text-stroke: 2px #004c26;
-    color: #c76a48;
+    -webkit-text-stroke: 2px #ffffff;
+    color: #000000;
     text-align: justify;
     
 }
 
-#p1{
-    font-size: 24px;
-    text-align: center;
-    text-shadow: 2px 2px 4px #ee823a;
-}
-
-.registro{
-    width: min-content;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-fieldset {
-    width: 300px;
-    border: 5px double #333;
-    border-radius: 12px;
-    background-color: lightblue;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="submit"] {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-
 .home .contenido span{
     font-size: 2.5rem;
     font-weight: bold;
-    color: #4a9f46;
+    color: #ec3030;
     -webkit-text-stroke: 0.9px rgb(0, 0, 0);
     padding: 1rem 1rem;
     line-height: 1.5;
     display: block;
     text-align:justify;
 }
+
 .home .contenido p{
-    font-size: 1.5rem;
-    color: #161616;
-    /* -webkit-text-stroke: 0.5px rgb(0, 0, 0); */
+    font-size: 1.8rem;
+    color: #242323;
+    -webkit-text-stroke: 0.15px rgb(255, 255, 255);
     padding: 1rem 0;
     line-height: 1.5;
     font-weight: bold;
@@ -150,4 +135,93 @@ input[type="submit"] {
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 2);
+}
+
+/* Seccion de productos */
+
+.productos{
+    min-height: 100vh;
+    background: url(../Imagenes/fondoPagedit.PNG) repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+.titulosPg{
+    text-align: center;
+    font-size: 4rem;
+    color: #000000;
+    padding: 1rem;
+    margin: 2rem 0;
+    backdrop-filter: blur(5px);
+    margin-top: 8rem;
+    box-shadow: 0 0.5rem 1.5rem #000000;
+    border-radius: 2rem;
+    border: 0.1rem solid #000000;
+}
+
+.productos .contenedorPr{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.productos .contenedorPr .caja{
+    flex: 1 1 30rem;
+    box-shadow: 0 0.5rem 1.5rem #000000;
+    border-radius: 2rem;
+    border: 0.1rem solid #000000;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.productos .contenedorPr .caja .imagenPr{
+    position: relative;
+    text-align: center;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+
+.productos .contenedorPr .caja .imagenPr img{
+    height: 25rem;
+}
+
+.productos .contenedorPr .caja:hover .imagenPr img{
+    transform: scale(1.1);
+}
+
+.productos .contenedorPr .caja .imagenPr .iconos{
+    position: absolute;
+    bottom: -7rem; left: 0;right: 0;
+    display: flex;
+}
+
+.productos .contenedorPr .caja:hover .imagenPr .iconos {
+    bottom: 0;
+}
+
+.productos .contenedorPr .caja .imagenPr .iconos a{
+    height: 3rem;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+    width: 50%;
+    background:var(--colorUso);
+    color: #000000;
+}
+
+.productos .contenedorPr .caja .imagenPr .iconos .cart-btn{
+    border-left: 0.1rem;
+    border-right: 0.1rem ;
+    width: 100%;
+}
+
+.productos .contenedorPr .caja .imagenPr .iconos a:hover{
+    background: hsl(0, 38%, 69%);
+}
+
+.productos .contenedorPr .caja .contenidoPro h3{
+    font-size: 2.5rem;
+    color: #000000;
+    text-align: center;
+    -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+    margin-bottom: 2rem;
 }
