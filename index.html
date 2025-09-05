@@ -6,35 +6,40 @@
     <title>TiendaXDelXCazador</title>
     <link rel="stylesheet" href="CSS/estilos.css"/>
     <link href="Js/codigo.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <header class="cabezera">
-        <nav class="barraNav">
-            <div class="logo">
-                <a href="index.html"><img src="Imagenes/LogoTienda.png" width="71" height="43" alt="LogoTienda"></a>
-            </div>
 
-            <div class="navega">
-                <a href="productos.html" style="color: black;"> Productos </a>
-                <a href="nosotros.html"style="color: black;"> Nosotros </a>
-                <a href="contacto.html" style="color: black;"> Contacto </a>
-                <a href="blogs.html" style="color: black;"> Blogs </a>
-            </div>
-
-            <div class="parteDerecha">
-                <a href="#" class="icon-link">🔍</a>
-                <a href="registro.html" class="icon-link">👤</a>
-                <a href="#" class="cart">🛒</a>
-            </div>
+      <header>    
+        <a href="index.html" class="logo">Tienda<span>X</span>del<span>X</span>casador</a>
+        
+        <nav class="barra">
+            <a href="index.html">Home</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
+
+        <div class="iconos">
+            <a href="#" class="fas fa-search"></a>
+            <a href="#" class="fas fa-user"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+        </div>
     </header>
-    
-    <div class="portada">
 
-        <img src="Imagenes/LogoTiendaCompleto.png" width="500" height="430" alt="Logo principal">
-        <p id="p1">En la tienda del cazador podras encontrar todas tus figuras coleccionables favoritas de anime 100% originales </p>
-
-    </div>
+    <section class="home" id="home">
+        <div class="contenido">
+            <h3>La Tienda del Cazador</h3>
+            <span>Tienda de figuras de colección</span>
+            <p>Bienvenido a la tienda del cazador, tu destino definitivo para encontrar auténticas figuras 
+            de colección de tu anime favorito. Ofrecemos productos 100% originales, garantizando la 
+            máxima calidad y detalle en cada pieza. Descubre el arte del coleccionismo con nosotros.. 
+            </p>
+        </div>
+        <div class="contenedorImagen">
+            <img id="imagenportada" src="Imagenes/LogoTiendaCompleto.png"  alt="logoCompleto">
+        </div>
+    </section>
 </body>
 </html> 
