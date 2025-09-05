@@ -104,6 +104,39 @@ header .iconos a:hover{
     
 }
 
+#p1{
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #ee823a;
+}
+
+.registro{
+    width: min-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+fieldset {
+    width: 300px;
+    border: 5px double #333;
+    border-radius: 12px;
+    background-color: lightblue;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
 .home .contenido span{
     font-size: 2.5rem;
     font-weight: bold;
