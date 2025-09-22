@@ -248,7 +248,8 @@ fieldset {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+input[type="date"] {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 15px;

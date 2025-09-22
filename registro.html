@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TiendaXdelXcasador</title>
+    <title>TiendaXDelXCazador</title>
     <link rel="stylesheet" href="CSS/estilos.css"/>
     <link href="Js/codigo.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -12,7 +12,7 @@
 <body>
 
     <header>    
-        <a href="index.html" class="logo">Tienda<span>X</span>del<span>X</span>cazador</a>
+        <a href="index.html" class="logo">Tienda<span>X</span>Del<span>X</span>Cazador</a>
         
         <nav class="barra">
             <a href="index.html">Home</a>
@@ -29,20 +29,41 @@
     </header>
     
     <div class="registro">
-        <form action="" method="post" name="Registro" >
+        <form action="" method="post" name="Registro" id="Registro">
             <fieldset>
                 <legend>Crear cuenta</legend>
+                <label for="rut">Rut (sin puntos ni guion)</label>
+                <input type="text" name="rut" id="rut" required>
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+                <input type="text" name="nombre" id="nombre" required>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" required>
                 <label for="correo">Correo electrónico</label>
-                <input type="email" name="correo" id="correo" placeholder="Ingrese su correo" required>
+                <input type="email" name="correo" id="correo" required>
+                <label for="fechaNac">Fecha de nacimiento (opcional)</label><br>
+                <input type="date" name="fechaNac" id="fechaNac">
                 <label for="contraseña">Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required><br><br>
+                <input type="password" name="contraseña" id="contraseña" required>
+                <label for="tipo">Tipo de usuario</label><br>
+                <select name="tipo" id="tipo">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Cliente">Cliente</option>
+                    <option value="Vendedor">Vendedor</option>
+                </select><br><br>
+                <label for="region">Regiones:</label><br>
+                <select name="region", id="region">
+                    <option value="" required>Seleccione una región</option>
+                </select><br><br>
+                <label for="comuna">Comunas:</label><br>
+                <select name="comuna", id="comuna" disabled>
+                    <option value="" required>Seleccione una comuna</option>
+                </select><br><br>
+                <label for="dirección">Dirección</label>
+                <input type="text" name="direccion" id="direccion" required>    
                 <input type="submit" value="Registrarse">
-
-                
             </fieldset>
         </form>
+        <script src="Js/codigo.js" defer></script>
     </div>
 </body>
 </html> 
