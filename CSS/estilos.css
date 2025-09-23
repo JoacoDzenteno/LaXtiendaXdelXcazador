@@ -229,7 +229,7 @@ header .iconos a:hover{
 .registro{
     width: min-content;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -248,9 +248,49 @@ fieldset {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="submit"],
 input[type="date"] {
     width: 100%;
-    box-sizing: border-box;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
     margin-bottom: 15px;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.login {
+    width: min-content;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenido-central {
+  text-align: center;
+  margin-top: 120px; /* deja espacio por el header fijo */
+}
+
+.logo-titulo {
+  width: 200px;
+  margin-bottom: 50px;
 }
