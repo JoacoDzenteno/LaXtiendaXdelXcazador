@@ -3,10 +3,13 @@ let cuentas = new Map([
   ["usuariogenerico@gmail.com", "54321"]
 ])
 
+const dominiosValidos = ["@duocuc.cl", "@gmail.com", "@profesor.duoc.cl"]
+
 const regiones = ["Región Metropolitana de Santiago", "Región de Arica y Parinacota", "Región de Tarapacá", "Región de Antofagasta",
   "Región de Atacama", "Región de Coquimbo", "Región de Valparaíso", "Región de O'Higgins", "Región del Maule", "Región del Ñuble",
   "Región del Biobío", "Región de la Araucanía", "Región de los Ríos", "Región de los Lagos","Región de Aysén", "Región de Magallanes"]
 
+//Comunas
 const arica = ["Arica", "Camarones", "General Lagos", "Putre"]
 const tarapaca = ["Alto Hospicio", "Camiña", "Colchane", "Huara", "Iquique", "Pica", "Pozo Almonte"]
 const antofagasta = ["Antofagasta", "Calama", "María Elena", "Mejillones", "Ollagüe", "San Pedro de Atacama", "Sierra Gorda", "Taltal", "Tocopilla"]
@@ -96,6 +99,36 @@ function mostrarComunas() {
   })
 
   comunaSeleccionada.disabled = false;
+}
+
+document.getElementById("submit").onclick = function() {
+  event.preventDefault()
+  const correo = document.getElementById("correo").value.trim()
+  const contrasena = document.getElementById("contraseña").value
+
+  const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)
+  if (!correoValido) {
+    alert("El correo no tiene un formato válido.")
+    return
+  }
+
+  const dominioValido = dominiosValidos.some(dominio => correo.endsWith(dominio));
+  if (!dominioValido) {
+    alert("El correo debe pertenecer a un dominio válido: " + dominiosValidos.join(", "))
+    return
+  }
+
+  if (contrasena.length < 4 || contrasena.length > 10) {
+    alert("La contraseña debe tener entre 4 a 10 caracteres.")
+    return
+  }
+
+  if (!cuentas.has(correo) || cuentas.get(correo) !== contrasena) {
+    alert("Correo o contraseña incorrectos.")
+    return
+  }
+
+  alert("Login exitoso.")
 }
 
 document.addEventListener("DOMContentLoaded", () => {
