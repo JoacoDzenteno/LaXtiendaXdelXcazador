@@ -9,7 +9,6 @@ const regiones = ["Región Metropolitana de Santiago", "Región de Arica y Parin
   "Región de Atacama", "Región de Coquimbo", "Región de Valparaíso", "Región de O'Higgins", "Región del Maule", "Región del Ñuble",
   "Región del Biobío", "Región de la Araucanía", "Región de los Ríos", "Región de los Lagos","Región de Aysén", "Región de Magallanes"]
 
-//Comunas
 const arica = ["Arica", "Camarones", "General Lagos", "Putre"]
 const tarapaca = ["Alto Hospicio", "Camiña", "Colchane", "Huara", "Iquique", "Pica", "Pozo Almonte"]
 const antofagasta = ["Antofagasta", "Calama", "María Elena", "Mejillones", "Ollagüe", "San Pedro de Atacama", "Sierra Gorda", "Taltal", "Tocopilla"]
@@ -66,6 +65,85 @@ const comunasPorRegion = {
   "Región de Magallanes": magallanes
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+
+  const loginForm = document.getElementById("Login");
+  if (loginForm) {
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault()
+      const correo = document.getElementById("correo").value.trim()
+      const contrasena = document.getElementById("contraseña").value
+
+      const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)
+      if (!correoValido) {
+        alert("El correo no tiene un formato válido.")
+        return
+      }
+
+      const dominioValido = dominiosValidos.some(dominio => correo.endsWith(dominio));
+      if (!dominioValido) {
+        alert("El correo debe pertenecer a un dominio válido: " + dominiosValidos.join(", "))
+        return
+      }
+
+      if (!validarContrasena(contrasena)) {
+        alert("La contraseña debe tener entre 4 a 10 caracteres.")
+        return
+      }
+
+      if (!cuentas.has(correo) || cuentas.get(correo) !== contrasena) {
+        alert("Correo o contraseña incorrectos.")
+        return
+      }
+
+      alert("Login exitoso.")
+    })
+  }
+
+  const registroForm = document.getElementById("Registro");
+  if (registroForm) {
+    registroForm.addEventListener("submit", function(event) {
+      event.preventDefault()
+      const rut = document.getElementById("rut").value.trim()
+      const nombre = document.getElementById("nombre").value.trim()
+      const apellidos = document.getElementById("apellidos").value.trim()
+      const correo = document.getElementById("correo").value.trim()
+      const direccion = document.getElementById("direccion").value.trim()
+      const contrasena = document.getElementById("contraseña").value
+
+      if (!validarRut(rut)) {
+        alert("El RUT ingresado no es válido. Debe ser sin puntos ni guion y tener entre 7 y 9 caracteres.")
+        return
+      }
+      if (!validarNombre(nombre)) {
+        alert("El nombre debe contener solo letras, máximo 50 caracteres.")
+        return
+      }
+      if (!validarApellidos(apellidos)) {
+        alert("Los apellidos deben contener solo letras, máximo 100 caracteres.")
+        return
+      }
+      if (!validarCorreo(correo)) {
+        alert("El correo no tiene un formato válido, máximo 100 caracteres y debe terminar en un dominio permitido.")
+        return
+      }
+      if (!validarDireccion(direccion)) {
+        alert("La dirección debe tener entre 5 y 300 caracteres.")
+        return
+      }
+      if (!validarContrasena(contrasena)) {
+        alert("La contraseña debe tener entre 4 y 10 caracteres.")
+        return
+      }
+
+      alert("Registro exitoso.")
+    })
+
+    mostrarRegiones()
+    document.getElementById("region").addEventListener("change", mostrarComunas)
+  }
+})
+
 function mostrarRegiones() {
   const select = document.getElementById("region")
 
@@ -101,38 +179,42 @@ function mostrarComunas() {
   comunaSeleccionada.disabled = false;
 }
 
-document.getElementById("submit").onclick = function() {
-  event.preventDefault()
-  const correo = document.getElementById("correo").value.trim()
-  const contrasena = document.getElementById("contraseña").value
-
-  const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)
-  if (!correoValido) {
-    alert("El correo no tiene un formato válido.")
-    return
-  }
-
-  const dominioValido = dominiosValidos.some(dominio => correo.endsWith(dominio));
-  if (!dominioValido) {
-    alert("El correo debe pertenecer a un dominio válido: " + dominiosValidos.join(", "))
-    return
-  }
-
-  if (contrasena.length < 4 || contrasena.length > 10) {
-    alert("La contraseña debe tener entre 4 a 10 caracteres.")
-    return
-  }
-
-  if (!cuentas.has(correo) || cuentas.get(correo) !== contrasena) {
-    alert("Correo o contraseña incorrectos.")
-    return
-  }
-
-  alert("Login exitoso.")
+function validarRut(rut) {
+  const rutSinPuntosGuion = /^[0-9]{7,8}[0-9kK]$/
+  const reverseRut = rut.split('').reverse().slice(1, rut.length)
+  const values = [2, 3, 4, 5, 6, 7]
+  let counter = 0
+  let total = 0
+  reverseRut.forEach((char) => {
+    total += parseInt(char) * values[counter%6]
+    counter++
+  })
+  const dv = 11 - (total % 11)
+  const dvEsperado = dv == 11 ? '0' : dv == 10 ? 'K' : dv.toString()
+  const valido = dvEsperado == rut[rut.length-1].toUpperCase()
+  return rutSinPuntosGuion.test(rut) && rut.length >= 7 && rut.length <= 9 && valido
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarRegiones(
-  document.getElementById("region").addEventListener("change", mostrarComunas)
-  )
-})
+function validarNombre(nombre) {
+  const nombreValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/.test(nombre)
+  return nombreValido && nombre.length <= 50
+}
+
+function validarApellidos(apellidos) {
+  const apellidosValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,100}$/.test(apellidos)
+  return apellidosValido && apellidos.length <= 100
+}
+
+function validarCorreo(correo) {
+  const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo) && correo.length <= 100
+  const dominioValido = dominiosValidos.some(dominio => correo.endsWith(dominio))
+  return correoValido && dominioValido
+}
+
+function validarDireccion(direccion) {
+  return direccion.length >= 5 && direccion.length <= 300
+}
+
+function validarContrasena(contrasena) {
+  return contrasena.length >= 4 && contrasena.length <= 10
+}
