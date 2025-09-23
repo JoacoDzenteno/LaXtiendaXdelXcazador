@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiendaXdelXcasador</title>
+
+    <link rel="stylesheet" href="CSS/estilos.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+     <header>    
+        <a href="index.html" class="logo">Tienda<span>X</span>del<span>X</span>cazador</a>
+        
+        <nav class="barra">
+            <a href="index.html">Home</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <div class="iconos">
+            <a href="#" class="fas fa-user"></a>
+            <a href="#" class="fas fa-shopping-cart">
+            <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="detallesProd" class="prod3">
+        <div class="imagenProducto">
+            <img src="Imagenes/productos/hunter/3Gon.png"  width="100%" id="principalImg" alt="">
+            
+            <div class="grupoImg">
+                <div class="filaImg">
+                    <img src="Imagenes/productos/hunter/3Gon.png" width="100%" class="imgPeque" onclick="cambiarImagen(this.src)">
+                </div>
+                <div class="filaImg">
+                    <img src="Imagenes/productos/hunter/3.1Gon.png" width="100%" class="imgPeque" onclick="cambiarImagen(this.src)">
+                </div>
+                <div class="filaImg">
+                    <img src="Imagenes/productos/hunter/3.2Gon.png" width="100%" class="imgPeque" onclick="cambiarImagen(this.src)">
+                </div>
+                <div class="filaImg">
+                    <img src="Imagenes/productos/hunter/3.3Gon.png" width="100%" class="imgPeque" onclick="cambiarImagen(this.src)">
+                </div>
+            </div>
+        </div>
+
+        <div class="descripcionProducto">
+            <h6>Hunter × Hunter</h6>
+            <h4> Gon Freecss - Memorable Saga Special (Bandai Spirits)</h4>
+            <h2>$30.000</h2>
+            <input type="number" value="1" class="box">
+            <button class="btn-agregar-carrito" onclick="agregarAlCarrito()">Añadir al carro</button>
+            <h4>Descripción</h4>
+            <span>
+                <ul>
+                    <li>Figura de Gon Freecss</li>
+                    <li>Nueva</li>
+                    <li>Año 2025</li>
+                </ul>
+            </span>
+        </div>
+    </section>
+
+    <footer class="piePagina">
+    
+    <div class="izq">
+        <p>Tienda<span>X</span>del<span>X</span>cazador</p>
+        <img src="Imagenes/MERCADO-PAGO.png" width="100%" alt="">
+    </div>
+    <div class="imgCont">
+        <a href="https://www.instagram.com/tiendaxdelxcazador/">
+            <img src="Imagenes/Instagram_icon.png" width="25%" alt="" >
+        </a>
+        <a href="contacto.html">
+            <img src="Imagenes/MENSAJE.webp" width="25%" alt="">
+        </a>
+    </div>
+    </footer>
+    </body>
+    <script src="Js/codigo.js"></script>
+</html>
