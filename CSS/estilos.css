@@ -532,3 +532,73 @@ transition: 0.5s;
     font-weight: bold;
     -webkit-text-stroke: 0.3px rgb(255, 255, 255);
 }
+
+/* vista registro */
+.registro{
+    width: min-content;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+fieldset {
+    width: 300px;
+    border: 5px groove #333;
+    border-radius: 12px;
+    background-color: lightblue;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.login {
+    width: min-content;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenido-central {
+  text-align: center;
+  margin-top: 120px; /* deja espacio por el header fijo */
+}
+
+.logo-titulo {
+  width: 200px;
+  margin-bottom: 50px;
+}
